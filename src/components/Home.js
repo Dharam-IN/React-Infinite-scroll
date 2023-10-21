@@ -4,12 +4,17 @@ import MovieComponent from "./MovieComponent";
 export default function Home(){
     const [card, setCard] = useState([])
 
-    const getCarData = async()=>{
-        const res = await fetch("https://jsonplaceholder.typicode.com/posts?%20limit=95_page=1");
-        const data = await res.json();
-        setCard(data);
-        console.log(card)
+    const getCarData = async () => {
+        try {
+            const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=9&_page=1");
+            const data = await res.json();
+            // console.log(data)
+            setCard(data);
+        } catch (error) {
+            console.error("Data fetch karne mein error aaya:", error);
+        }
     };
+    
 
     useEffect(()=>{
         getCarData();

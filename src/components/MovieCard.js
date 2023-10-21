@@ -1,14 +1,17 @@
 import React from "react";
 
-export default function MovieCard(mydata){
-    const {title, id, body} = mydata
-    return(
+export default function MovieCard(myData) {
+    let newmydata = myData.myData
+    const { title, id, body } = newmydata;
+    console.log(newmydata)
+
+    return (
         <div className="card">
             <div className="card-info">
                 <p className="card-id">{id}</p>
-                <p>{body.slice(0,150)}</p>
-                <h2>{title.slice(0,15)}</h2>
+                {body && <p>{body}</p>}
+                {title && <h2>{title}</h2>}
             </div>
         </div>
-    )
+    );
 }
